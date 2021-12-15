@@ -1,19 +1,16 @@
-import React, { Component } from "react";
-import { getMovies } from "../services/fakeMovieService";
+import React from "react";
 
-class Islike extends React.Component {
-  render() {
-    let classes = "fa fa-heart";
-    if (this.props.liked === false) classes += "-o";
-    return (
-      <i
-        style={{ cursor: "pointer" }}
-        onClick={this.props.onClick}
-        className={classes}
-        aria-hidden="true"
-      ></i>
-    );
-  }
-}
+const Islike = (props) => {
+  let classes = "fa fa-heart";
+  if (props.liked === false) classes += "-o";
+  return (
+    <i
+      style={{ cursor: "pointer" }}
+      onClick={props.onClick}
+      className={classes}
+      aria-hidden="true"
+    ></i>
+  );
+};
 
 export default Islike;
