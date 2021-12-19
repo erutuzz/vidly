@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { NavLink } from "react-router-dom";
 
 class TableBody extends React.Component {
   renderCell(item, column) {
