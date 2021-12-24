@@ -10,6 +10,7 @@ const MoviesForm = ({ match, history }) => {
       >
         Save
       </button>
+      {console.log(match.params.id)}
     </div>
   );
 };
