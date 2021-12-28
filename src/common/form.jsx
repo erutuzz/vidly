@@ -12,7 +12,6 @@ class Form extends React.Component {
   validate = () => {
     const option = { abortEarly: false };
     const { error } = Joi.validate(this.state.data, this.schema, option);
-    console.log("here" + error);
 
     if (!error) return null;
     const errors = {};
