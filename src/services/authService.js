@@ -5,11 +5,13 @@ import { apiUrl } from "../config.json";
 const apiEndpoint = apiUrl + "auth";
 const tokenKey = "token";
 
+http.setJwt(getJwt());
+
 export async function login(email, password) {
   const { data: jwt } = await http.post(apiEndpoint, { email, password });
-  console.log("after post");
+  // console.log("after post");
   localStorage.setItem(tokenKey, jwt);
-  console.log("after setItem");
+  // console.log("after setItem");
 }
 
 export function loginWithJwt(jwt) {
@@ -20,7 +22,7 @@ export function logout() {
   localStorage.removeItem(tokenKey);
 }
 
-export function getCutterntUser() {
+export function getCurrentUser() {
   try {
     const jwt = localStorage.getItem(tokenKey);
     return jwtDecode(jwt);
@@ -29,9 +31,14 @@ export function getCutterntUser() {
   }
 }
 
+export function getJwt() {
+  return localStorage.getItem(tokenKey);
+}
+
 export default {
   login,
   logout,
-  getCutterntUser,
+  getCurrentUser,
   loginWithJwt,
+  getJwt,
 };

@@ -11,6 +11,7 @@ const ListGroup = ({
     <ul className="list-group">
       {items.map((item) => (
         <li
+          style={{ cursor: "pointer" }}
           key={item[valueProperty]}
           className={
             selectedItem === item ? "list-group-item active" : "list-group-item"
